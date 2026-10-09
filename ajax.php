@@ -2,8 +2,12 @@
 ob_start();
 date_default_timezone_set("Asia/Manila");
 
-$action = $_GET['action'];
+$action = isset($_GET['action']) ? $_GET['action'] : '';
 include 'admin_class.php';
+if(!in_array($action, ['login','login2','signup'], true) && !isset($_SESSION['login_id'])){
+	http_response_code(403);
+	exit;
+}
 $crud = new Action();
 if($action == 'login'){
 	$login = $crud->login();

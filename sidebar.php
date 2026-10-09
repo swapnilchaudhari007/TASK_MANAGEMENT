@@ -91,8 +91,8 @@
   </aside>
   <script>
   	$(document).ready(function(){
-      var page = '<?php echo isset($_GET['page']) ? $_GET['page'] : 'home' ?>';
-  		var s = '<?php echo isset($_GET['s']) ? $_GET['s'] : '' ?>';
+      var page = <?php echo json_encode(isset($_GET['page']) ? (string)$_GET['page'] : 'home', JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP) ?>;
+  		var s = <?php echo json_encode(isset($_GET['s']) ? (string)$_GET['s'] : '', JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP) ?>;
       if(s!='')
         page = page+'_'+s;
   		if($('.nav-link.nav-'+page).length > 0){

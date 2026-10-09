@@ -48,7 +48,7 @@
       <div class="container-fluid">
          <?php 
             $page = isset($_GET['page']) ? $_GET['page'] : 'home';
-            if(!file_exists($page.".php")){
+            if(!preg_match('/^[a-z0-9_]+$/i', $page) || in_array($page, ['index','ajax','admin_class','db_connect'], true) || !file_exists(__DIR__.'/'.$page.".php")){
                 include '404.html';
             }else{
             include $page.'.php';

@@ -5,7 +5,7 @@
   date_default_timezone_set("Asia/Manila");
   
   ob_start();
-  $title = isset($_GET['page']) ? ucwords(str_replace("_", ' ', $_GET['page'])) : "Home";
+  $title = isset($_GET['page']) ? htmlspecialchars(ucwords(str_replace("_", ' ', (string)$_GET['page'])), ENT_QUOTES) : "Home";
   ?>
   <title><?php echo $title ?> | <?php echo $_SESSION['system']['name'] ?></title>
   <?php ob_end_flush() ?>

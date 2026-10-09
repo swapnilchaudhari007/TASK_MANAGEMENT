@@ -2,7 +2,7 @@
 <?php
 if(isset($_GET['id'])){
 	$type_arr = array('',"Admin","Project Manager","Employee");
-	$qry = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where id = ".$_GET['id'])->fetch_array();
+	$qry = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where id = ".(int)$_GET['id'])->fetch_array();
 foreach($qry as $k => $v){
 	$$k = $v;
 }

@@ -1,7 +1,7 @@
 <?php 
 include 'db_connect.php';
 if(isset($_GET['id'])){
-	$qry = $conn->query("SELECT * FROM task_list where id = ".$_GET['id'])->fetch_array();
+	$qry = $conn->query("SELECT * FROM task_list where id = ".(int)$_GET['id'])->fetch_array();
 	foreach($qry as $k => $v){
 		$$k = $v;
 	}
@@ -10,7 +10,7 @@ if(isset($_GET['id'])){
 <div class="container-fluid">
 	<form action="" id="manage-task">
 		<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
-		<input type="hidden" name="project_id" value="<?php echo isset($_GET['pid']) ? $_GET['pid'] : '' ?>">
+		<input type="hidden" name="project_id" value="<?php echo isset($_GET['pid']) ? (int)$_GET['pid'] : '' ?>">
 		<div class="form-group">
 			<label for="">Task</label>
 			<input type="text" class="form-control form-control-sm" name="task" value="<?php echo isset($task) ? $task : '' ?>" required>
