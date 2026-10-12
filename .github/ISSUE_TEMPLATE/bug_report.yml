@@ -1,0 +1,42 @@
+name: 🐛 Bug report
+description: Report something broken in Task Management
+title: '[Bug]: '
+labels:
+- bug
+body:
+- type: input
+  id: area
+  attributes:
+    label: Affected area
+    description: e.g. Projects, Tasks, Progress tracking
+  validations:
+    required: true
+- type: textarea
+  id: what
+  attributes:
+    label: What happened?
+    description: What did you expect, and what happened instead?
+  validations:
+    required: true
+- type: textarea
+  id: steps
+  attributes:
+    label: Steps to reproduce
+    placeholder: "1. \n2. \n3. "
+  validations:
+    required: true
+- type: dropdown
+  id: role
+  attributes:
+    label: Logged-in role
+    options:
+    - Admin
+    - Project manager
+    - Employee
+    - Not logged in
+- type: textarea
+  id: logs
+  attributes:
+    label: Logs or screenshots
+    description: Remove keys, tokens and personal data first.
+    render: shell
