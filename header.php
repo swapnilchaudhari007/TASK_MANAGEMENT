@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php 
-  date_default_timezone_set("Asia/Manila");
+  date_default_timezone_set("Asia/Kolkata");
   
   ob_start();
   $title = isset($_GET['page']) ? htmlspecialchars(ucwords(str_replace("_", ' ', (string)$_GET['page'])), ENT_QUOTES) : "Home";
